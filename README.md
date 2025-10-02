@@ -96,6 +96,18 @@ vi ai-packs/my-custom-pack/README.md
 cp ai-rules/global/foundation/communication-style-direct.md ai-packs/my-custom-pack/rules/01-rules/
 ```
 
+## Future Enhancements
+
+### TODO: Rulebook-AI Integration
+- [ ] **Centralized pack registry**: Create a central list/registry of available packs from this collection
+- [ ] **Rulebook-ai project sync**: Integrate with rulebook-ai's pack system for project-specific deployment
+- [ ] **Profile management**: Enable rulebook-ai profiles to selectively activate packs per project
+- [ ] **Pack versioning**: Version packs so projects can pin to specific rule versions
+- [ ] **Dependency management**: Handle pack dependencies and conflicts automatically
+- [ ] **Community sharing**: Make packs shareable through rulebook-ai's community system
+
+Goal: Use this rule development workspace → Generate packs → Deploy via rulebook-ai to specific projects with selective pack activation.
+
 ## Notes
 
 - This repo intentionally avoids auto-installing rulebook-ai community packs
