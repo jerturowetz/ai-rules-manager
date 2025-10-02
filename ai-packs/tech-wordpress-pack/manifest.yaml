@@ -1,0 +1,22 @@
+name: tech-wordpress-pack
+version: 1.0.0
+summary: WordPress-specific development standards and practices
+description: |
+  WordPress-specific development standards and practices
+  
+  This pack contains 1 rules organized for consistent AI interactions.
+
+author: jeremyt
+created: 2025-10-01
+category: technology
+
+rules:
+  - path: rules/01-rules/wordpress-standards.md
+    description: wordpress standards
+
+dependencies: []
+conflicts: []
+
+tags:
+  - technology
+  - ai-rules

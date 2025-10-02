@@ -1,0 +1,35 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS Thumbnails
+._*
+
+# macOS Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Vim swap files
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Logs
+*.log
+
+# Optional: Uncomment if you want to treat generated packs as build artifacts
+# ai-packs/
+# !ai-packs/foundation-pack/
+# (This would ignore all generated packs except manually maintain foundation-pack as an example)
+
+# Optional: Environment-specific files
+.env
+.env.local

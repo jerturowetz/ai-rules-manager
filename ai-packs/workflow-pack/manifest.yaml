@@ -1,0 +1,28 @@
+name: workflow-pack
+version: 1.0.0
+summary: Git workflow, project management, and documentation standards
+description: |
+  Git workflow, project management, and documentation standards
+  
+  This pack contains 4 rules organized for consistent AI interactions.
+
+author: jeremyt
+created: 2025-10-01
+category: workflow
+
+rules:
+  - path: rules/01-rules/commit-message-standards.md
+    description: commit message standards
+  - path: rules/01-rules/list-formatting.md
+    description: list formatting
+  - path: rules/01-rules/no-code-in-briefs.md
+    description: no code in briefs
+  - path: rules/01-rules/pr-summary-standards.md
+    description: pr summary standards
+
+dependencies: []
+conflicts: []
+
+tags:
+  - workflow
+  - ai-rules

@@ -1,0 +1,24 @@
+name: tool-config-pack
+version: 1.0.0
+summary: IDE and tooling configuration standards
+description: |
+  IDE and tooling configuration standards
+  
+  This pack contains 2 rules organized for consistent AI interactions.
+
+author: jeremyt
+created: 2025-10-01
+category: configuration
+
+rules:
+  - path: rules/01-rules/cursor-standards.md
+    description: cursor standards
+  - path: rules/01-rules/prefer-ssh-remotes.md
+    description: prefer ssh remotes
+
+dependencies: []
+conflicts: []
+
+tags:
+  - configuration
+  - ai-rules

@@ -1,0 +1,22 @@
+name: context-privacy-pack
+version: 1.0.0
+summary: Privacy compliance and consent management standards
+description: |
+  Privacy compliance and consent management standards
+  
+  This pack contains 1 rules organized for consistent AI interactions.
+
+author: jeremyt
+created: 2025-10-01
+category: context
+
+rules:
+  - path: rules/01-rules/privacy-compliance-context.md
+    description: privacy compliance context
+
+dependencies: []
+conflicts: []
+
+tags:
+  - context
+  - ai-rules

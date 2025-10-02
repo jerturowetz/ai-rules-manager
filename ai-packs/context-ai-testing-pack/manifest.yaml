@@ -1,0 +1,22 @@
+name: context-ai-testing-pack
+version: 1.0.0
+summary: AI system testing and quality assurance methodologies
+description: |
+  AI system testing and quality assurance methodologies
+  
+  This pack contains 1 rules organized for consistent AI interactions.
+
+author: jeremyt
+created: 2025-10-01
+category: context
+
+rules:
+  - path: rules/01-rules/ai-negative-testing.md
+    description: ai negative testing
+
+dependencies: []
+conflicts: []
+
+tags:
+  - context
+  - ai-rules

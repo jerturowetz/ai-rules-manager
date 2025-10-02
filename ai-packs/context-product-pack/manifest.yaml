@@ -1,0 +1,24 @@
+name: context-product-pack
+version: 1.0.0
+summary: Product management and task formatting standards
+description: |
+  Product management and task formatting standards
+  
+  This pack contains 2 rules organized for consistent AI interactions.
+
+author: jeremyt
+created: 2025-10-01
+category: context
+
+rules:
+  - path: rules/01-rules/product-recommendations.md
+    description: product recommendations
+  - path: rules/01-rules/task-brief-formats.md
+    description: task brief formats
+
+dependencies: []
+conflicts: []
+
+tags:
+  - context
+  - ai-rules

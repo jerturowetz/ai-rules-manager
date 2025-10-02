@@ -1,0 +1,28 @@
+name: foundation-pack
+version: 1.0.0
+summary: Core communication and thinking patterns for AI interactions
+description: |
+  Core communication and thinking patterns for AI interactions
+  
+  This pack contains 4 rules organized for consistent AI interactions.
+
+author: jeremyt
+created: 2025-10-01
+category: foundation
+
+rules:
+  - path: rules/01-rules/be-thorough.md
+    description: be thorough
+  - path: rules/01-rules/communication-style-direct.md
+    description: communication style direct
+  - path: rules/01-rules/systematic-problem-solving.md
+    description: systematic problem solving
+  - path: rules/01-rules/validate-sources.md
+    description: validate sources
+
+dependencies: []
+conflicts: []
+
+tags:
+  - foundation
+  - ai-rules

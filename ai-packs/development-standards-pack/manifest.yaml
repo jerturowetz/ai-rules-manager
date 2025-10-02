@@ -1,0 +1,38 @@
+name: development-standards-pack
+version: 1.0.0
+summary: Code quality, testing, and implementation standards
+description: |
+  Code quality, testing, and implementation standards
+  
+  This pack contains 9 rules organized for consistent AI interactions.
+
+author: jeremyt
+created: 2025-10-01
+category: development
+
+rules:
+  - path: rules/01-rules/api-incremental-testing.md
+    description: api incremental testing
+  - path: rules/01-rules/avoid-over-scripting.md
+    description: avoid over scripting
+  - path: rules/01-rules/avoid-regex-parsing.md
+    description: avoid regex parsing
+  - path: rules/01-rules/code-formatting-guidelines.md
+    description: code formatting guidelines
+  - path: rules/01-rules/database-evolution-principle.md
+    description: database evolution principle
+  - path: rules/01-rules/implementation-standards.md
+    description: implementation standards
+  - path: rules/01-rules/simple-solutions-principle.md
+    description: simple solutions principle
+  - path: rules/01-rules/systematic-file-operations.md
+    description: systematic file operations
+  - path: rules/01-rules/tooling-parity.md
+    description: tooling parity
+
+dependencies: []
+conflicts: []
+
+tags:
+  - development
+  - ai-rules

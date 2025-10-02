@@ -1,0 +1,22 @@
+name: tech-astro-pack
+version: 1.0.0
+summary: Astro framework development standards and practices
+description: |
+  Astro framework development standards and practices
+  
+  This pack contains 1 rules organized for consistent AI interactions.
+
+author: jeremyt
+created: 2025-10-01
+category: technology
+
+rules:
+  - path: rules/01-rules/astro-standards.md
+    description: astro standards
+
+dependencies: []
+conflicts: []
+
+tags:
+  - technology
+  - ai-rules

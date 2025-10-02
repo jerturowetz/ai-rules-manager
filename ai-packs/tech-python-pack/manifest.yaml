@@ -1,0 +1,22 @@
+name: tech-python-pack
+version: 1.0.0
+summary: Python-specific development standards and best practices
+description: |
+  Python-specific development standards and best practices
+  
+  This pack contains 1 rules organized for consistent AI interactions.
+
+author: jeremyt
+created: 2025-10-01
+category: technology
+
+rules:
+  - path: rules/01-rules/python-standards.md
+    description: python standards
+
+dependencies: []
+conflicts: []
+
+tags:
+  - technology
+  - ai-rules
