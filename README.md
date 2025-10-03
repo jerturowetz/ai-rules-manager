@@ -1,13 +1,45 @@
-# AI Rules Manager
+# AI Rule Manager
 
-A development workspace for creating and organizing AI interaction rules and packs for use with [rulebook-ai](https://github.com/botingw/rulebook-ai). This project is for rule development, not deployment — it organizes your rules locally before deploying them to OTHER projects.
+A development workspace for creating and organizing AI interaction rules and packs for use with [rulebook-ai](https://github.com/botingw/rulebook-ai). This repository lives at `~/.ai-rule-manager` and generates rulebook-ai compliant packs that can be directly consumed from other projects.
 
-## Methodology
+## Installation
 
-This project separates **development** from **deployment**:
-- Develop rules in `ai-rules/`
-- Organize packs in `ai-packs/`
-- Deploy using `scripts/sync.sh` to `~/.ai-rules` and `~/ai-packs`
+### 1. Install rulebook-ai
+```bash
+pip install git+https://github.com/botingw/rulebook-ai.git
+```
+
+### 2. Clone this repository to your home directory
+```bash
+git clone https://github.com/jerturowetz/ai-rules-manager.git ~/.ai-rule-manager
+cd ~/.ai-rule-manager
+```
+
+## Quick Start
+
+**One-command setup and sync:**
+```bash
+# Complete setup: install dependencies, generate packs, sync to rulebook-ai
+./setup-and-sync.sh
+
+# Preview what would be done without making changes
+./setup-and-sync.sh --dry-run
+```
+
+## How It Works
+
+This system integrates with rulebook-ai to provide a complete rule management workflow:
+
+1. **Development**: Create and organize rules in `ai-rules/`
+2. **Packaging**: Generate rulebook-ai compliant packs in `ai-packs/`  
+3. **Installation**: Add packs to rulebook-ai pack library
+4. **Consumption**: Apply packs to projects using `rulebook-ai project sync`
+
+### Integration with Rulebook-AI
+
+- **Pack Generation**: Automatically creates packs with proper numeric prefixes required by rulebook-ai
+- **Local Installation**: Use `rulebook-ai packs add local:./ai-packs/pack-name` to install your custom packs
+- **Project Usage**: Apply packs to any project with `rulebook-ai project sync`
 
 ### Current Architecture (organized for pack generation)
 
@@ -37,34 +69,55 @@ ai-rules-manager/
     └── sync.sh
 ```
 
-### Deployment Targets
-
-- `ai-rules/` → `~/.ai-rules` (only rule files; dev files are excluded)
-- `ai-packs/` → `~/ai-packs` (pack collections consumable by rulebook-ai)
 
 ## Workflow
 
+### Automated (Recommended)
+```bash
+# One command does it all: generate packs + sync to rulebook-ai
+./setup-and-sync.sh
+```
+
+### Manual Steps
 1. **Capture new rules**: Drop new rules in `INBOX/` for quick capture
 2. **Process INBOX**: Regularly review and move rules from `INBOX/` to `ai-rules/`
 3. **Edit rules**: Refine and organize rules in `ai-rules/`
-4. **Build packs**: Generate packs under `ai-packs/`
-5. **Preview changes**: Test with `scripts/sync.sh --dry-run`
-6. **Deploy**: Deploy with `scripts/sync.sh`
+4. **Generate & sync**: Run `./setup-and-sync.sh` or individual scripts:
+   - `scripts/generate-packs.sh` - Create rulebook-ai compliant packs
+   - `scripts/add-packs.sh` - Sync all packs to rulebook-ai
+5. **Use in projects**: Apply to any project with `rulebook-ai project sync`
 
 ## Commands
 
+### Pack Generation
 ```bash
-# Preview changes without applying
-scripts/sync.sh --dry-run
+# Generate all packs from rule directories
+scripts/generate-packs.sh
 
-# Deploy all changes
-scripts/sync.sh
+# Preview what would be generated (safe, no changes)
+scripts/generate-packs.sh --dry-run
 
-# Sync only rules (skip packs)
-scripts/sync.sh --no-packs
+# Generate only a specific pack
+scripts/generate-packs.sh --pack-name foundation
+```
 
-# Sync only packs (skip individual rules)
-scripts/sync.sh --no-rules
+### Rulebook-AI Integration
+```bash
+# Sync ALL generated packs to rulebook-ai (recommended workflow)
+scripts/add-packs.sh
+
+# Preview what would be synced without making changes
+scripts/add-packs.sh --dry-run
+
+# Add a single pack manually
+rulebook-ai packs add local:./ai-packs/foundation-pack
+
+# List available and installed packs
+rulebook-ai packs list
+rulebook-ai packs status
+
+# Apply packs to a project (run in project directory)
+rulebook-ai project sync
 ```
 
 ## Pack Generation
@@ -110,10 +163,34 @@ cp ai-rules/global/foundation/communication-style-direct.md ai-packs/my-custom-p
 - [ ] **Dependency management**: Handle pack dependencies and conflicts automatically
 - [ ] **Community sharing**: Make packs shareable through rulebook-ai's community system
 
-Goal: Use this rule development workspace → Generate packs → Deploy via rulebook-ai to specific projects with selective pack activation.
+## Documentation
+
+### Official Resources
+- **Rulebook-AI Repository**: https://github.com/botingw/rulebook-ai
+- **"Hidden" Documentation**: https://github.com/botingw/rulebook-ai/tree/main/memory/docs/
+  
+  ⚠️ **Note**: These docs may be incomplete or out of date, but they contain the recommended structure specifications that this project follows.
+
+### Setup Script Features
+The `setup-and-sync.sh` script provides zero-configuration automation:
+- **Dependency Management**: Automatically installs uvx and rulebook-ai if missing
+- **Smart Updates**: Updates existing rulebook-ai installation to latest version
+- **Complete Workflow**: Generates packs + syncs to rulebook-ai in one command
+- **Safety First**: Includes `--dry-run` mode and `--skip-install` for testing
+
+### Pack Structure Requirements
+This project generates packs that comply with rulebook-ai's pack structure spec:
+- Rule files must have numeric prefixes: `01-rule-name.md`, `02-another-rule.md`
+- Packs must contain `manifest.yaml`, `README.md`, and `rules/01-rules/` directory
+- All requirements are automatically handled by the generation scripts
+
+## Integration Workflow
+
+Use this rule development workspace → Generate compliant packs → Install via rulebook-ai → Deploy to specific projects with selective pack activation.
 
 ## Notes
 
-- This repo intentionally avoids auto-installing rulebook-ai community packs
-- We focus on organizing YOUR rules and turning them into packs
-- The sync script excludes `.DS_Store`, README/NOTES, and manifest files from deployment
+- This repository focuses on organizing YOUR custom rules and turning them into rulebook-ai compliant packs
+- Generated packs include proper numeric prefixes and structure required by rulebook-ai
+- Use `rulebook-ai packs add` to install community packs alongside your custom ones
+- All pack generation follows the official rulebook-ai pack structure specification

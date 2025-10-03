@@ -1,0 +1,55 @@
+{
+  "packs": [
+    {
+      "name": "context-ai-testing-pack",
+      "version": "1.0.0",
+      "source": "local"
+    },
+    {
+      "name": "context-privacy-pack",
+      "version": "1.0.0",
+      "source": "local"
+    },
+    {
+      "name": "context-product-pack",
+      "version": "1.0.0",
+      "source": "local"
+    },
+    {
+      "name": "development-standards-pack",
+      "version": "1.0.0",
+      "source": "local"
+    },
+    {
+      "name": "foundation-pack",
+      "version": "1.0.0",
+      "source": "local"
+    },
+    {
+      "name": "tech-astro-pack",
+      "version": "1.0.0",
+      "source": "local"
+    },
+    {
+      "name": "tech-python-pack",
+      "version": "1.0.0",
+      "source": "local"
+    },
+    {
+      "name": "tech-wordpress-pack",
+      "version": "1.0.0",
+      "source": "local"
+    },
+    {
+      "name": "tool-config-pack",
+      "version": "1.0.0",
+      "source": "local"
+    },
+    {
+      "name": "workflow-pack",
+      "version": "1.0.0",
+      "source": "local"
+    }
+  ],
+  "profiles": {}
+}

@@ -110,16 +110,19 @@ category: $pack_category
 rules:
 EOF
 
-  # Add rule entries
+  # Add rule entries with numeric prefixes
+  local counter=1
   find "$source_dir" -name "*.md" | sort | while read -r rule_file; do
     local rule_filename=$(basename "$rule_file")
+    local prefixed_filename=$(printf "%02d-%s" "$counter" "$rule_filename")
     local rule_name="${rule_filename%.md}"
     local rule_title=$(echo "$rule_name" | sed 's/-/ /g' | sed 's/\b\w/\U&/g')
     
     cat >> "$pack_dir/manifest.yaml" << EOF
-  - path: rules/01-rules/$rule_filename
+  - path: rules/01-rules/$prefixed_filename
     description: $rule_title
 EOF
+    counter=$((counter + 1))
   done
 
   cat >> "$pack_dir/manifest.yaml" << EOF
@@ -152,13 +155,16 @@ This pack contains $rule_count AI interaction rules focused on $(echo "$pack_nam
 
 EOF
 
-  # List all rules
+  # List all rules with numeric prefixes
+  local counter=1
   find "$source_dir" -name "*.md" | sort | while read -r rule_file; do
     local rule_filename=$(basename "$rule_file")
+    local prefixed_filename=$(printf "%02d-%s" "$counter" "$rule_filename")
     local rule_name="${rule_filename%.md}"
     local rule_title=$(echo "$rule_name" | sed 's/-/ /g' | sed 's/\b\w/\U&/g')
     
-    echo "- **$rule_filename** - $rule_title" >> "$pack_dir/README.md"
+    echo "- **$prefixed_filename** - $rule_title" >> "$pack_dir/README.md"
+    counter=$((counter + 1))
   done
 
   cat >> "$pack_dir/README.md" << EOF
@@ -192,11 +198,18 @@ generate_pack() {
   
   echo "[create] Generating pack: $pack_name"
   
-  # Create pack directory structure
+  # Clean and create pack directory structure
+  rm -rf "$pack_dir"
   mkdir -p "$pack_dir/rules/01-rules"
   
-  # Copy rule files
-  find "$source_dir" -name "*.md" -exec cp {} "$pack_dir/rules/01-rules/" \;
+  # Copy rule files with numeric prefixes (required by rulebook-ai)
+  local counter=1
+  find "$source_dir" -name "*.md" | sort | while read -r rule_file; do
+    local rule_filename=$(basename "$rule_file")
+    local prefixed_filename=$(printf "%02d-%s" "$counter" "$rule_filename")
+    cp "$rule_file" "$pack_dir/rules/01-rules/$prefixed_filename"
+    counter=$((counter + 1))
+  done
   
   # Generate manifest
   generate_manifest "$pack_name" "$pack_dir" "$source_dir" "$category"
