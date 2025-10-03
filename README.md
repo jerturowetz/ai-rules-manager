@@ -13,6 +13,8 @@ This project separates **development** from **deployment**:
 
 ```
 ai-rules-manager/
+├── INBOX/
+│   └── (staging area for new rules)
 ├── ai-rules/
 │   ├── global/
 │   │   ├── foundation/
@@ -42,10 +44,12 @@ ai-rules-manager/
 
 ## Workflow
 
-1. Edit rules in `ai-rules/`
-2. Build packs under `ai-packs/`
-3. Preview changes with `scripts/sync.sh --dry-run`
-4. Deploy with `scripts/sync.sh`
+1. **Capture new rules**: Drop new rules in `INBOX/` for quick capture
+2. **Process INBOX**: Regularly review and move rules from `INBOX/` to `ai-rules/`
+3. **Edit rules**: Refine and organize rules in `ai-rules/`
+4. **Build packs**: Generate packs under `ai-packs/`
+5. **Preview changes**: Test with `scripts/sync.sh --dry-run`
+6. **Deploy**: Deploy with `scripts/sync.sh`
 
 ## Commands
 

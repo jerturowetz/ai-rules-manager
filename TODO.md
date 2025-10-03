@@ -89,7 +89,9 @@ rulebook-ai ecosystem
 - [ ] Study rulebook-ai's current pack system architecture
 - [ ] Understand how rulebook-ai discovers and installs packs
 - [ ] Identify rulebook-ai's profile/project configuration format
-- [ ] Test pack compatibility with different AI assistants
+- [ ] **Research ChatGPT integration**: Does rulebook-ai output files for dragging into ChatGPT projects?
+- [ ] **Test AI assistant compatibility**: How does rulebook-ai deploy to different AI assistants (Claude, ChatGPT, Cursor, etc.)?
+- [ ] **File format investigation**: What formats do different AI assistants expect for rule files?
 - [ ] Research community pack sharing mechanisms
 
 ## Success Metrics
